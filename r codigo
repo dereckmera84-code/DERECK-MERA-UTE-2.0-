@@ -1,0 +1,93 @@
+###############################################################################
+# ESTADÍSTICA I - DISTRIBUCIÓN DE PROBABILIDAD NORMAL
+# Funciones clave: dnorm(), pnorm(), qnorm(), rnorm()
+###############################################################################
+
+# ---------------------------------------------------------------------------
+# 1. VISUALIZACIÓN DE LA CURVA NORMAL Y EFECTO DE LOS PARÁMETROS
+# ---------------------------------------------------------------------------
+
+# Curva normal estándar (mu = 0, sigma = 1)
+x <- seq(-4, 4, length.out = 100)
+y <- dnorm(x, mean = 0, sd = 1)
+plot(x, y, type = "l", lwd = 2, col = "black",
+     main = "Distribución Normal Estándar",
+     xlab = "z", ylab = "Densidad f(z)")
+abline(v = 0, lty = 2, col = "gray")
+
+# Efecto de sigma: misma media, distinta dispersión
+curve(dnorm(x, mean = 0, sd = 0.7), from = -4, to = 4, col = "darkcyan", lwd = 2,
+      ylab = "Densidad", xlab = "x", main = "Efecto de sigma sobre la forma")
+curve(dnorm(x, mean = 0, sd = 1.3), add = TRUE, col = "darkorange", lwd = 2)
+legend("topright", legend = c("sigma = 0.7", "sigma = 1.3"),
+       col = c("darkcyan", "darkorange"), lwd = 2)
+
+# Efecto de mu: misma dispersión, distinto centro
+curve(dnorm(x, mean = -1, sd = 1), from = -5, to = 5, col = "darkcyan", lwd = 2,
+      ylab = "Densidad", xlab = "x", main = "Efecto de mu sobre la posición")
+curve(dnorm(x, mean = 2, sd = 1), add = TRUE, col = "darkorange", lwd = 2)
+legend("topright", legend = c("mu = -1", "mu = 2"),
+       col = c("darkcyan", "darkorange"), lwd = 2)
+
+
+# ---------------------------------------------------------------------------
+# 2. REGLA EMPÍRICA 68-95-99.7
+#    Tiempo de viaje en el Trolebús entre dos paradas (minutos)
+# ---------------------------------------------------------------------------
+media <- 28
+desv <- 6
+
+# funcion pnorm
+### REGLA EMPÍRICA 68%
+p1 <- pnorm(34, 28, 6) - pnorm(22, 28, 6)
+p1*100
+p2 <- pnorm(media + desv, media, desv) - pnorm(media - desv, media, desv)
+p2*100
+
+### REGLA EMPÍRICA 95%
+p95 <- pnorm(media + 2*desv, media, desv) - pnorm(media - 2*desv, media, desv)
+p95*100
+
+## REGLA EMPÍRICA 99,7%
+p99 <- pnorm(media + 3*desv, media, desv) - pnorm(media - 3*desv, media, desv)
+p99*100
+
+#-----------------------------------------------------------------------------
+# EJEMPLO 1 CALIFICACIONES
+#-----------------------------------------------------------------------------
+mc <- 70
+desvc <- 10
+p_pbajo <- pnorm(50, mc, desvc, lower.tail = TRUE)
+p_pbajo
+p_palto <- pnorm(50, mc, desvc, lower.tail = FALSE)
+p_palto
+
+#-----------------------------------------------------------------------------
+# EJEMPLO 2 FUNDAS DE ROSAS (percertil) qnorm
+#-----------------------------------------------------------------------------
+mr <- 500
+dr <- 15
+p90 <- 0.9
+pr <- qnorm(0.9, mr, dr)
+pr
+
+#-----------------------------------------------------------------------------
+# EJEMPLO 3 TIEMPO DE ENTREGA (DOS VALORES)
+#-----------------------------------------------------------------------------
+mt <- 35
+dt <- 8
+p25_40 <- pnorm(40, mt, dt) - pnorm(25, mt, dt)
+p25_40
+p2.2 <- pnorm(25, mt, dt, lower.tail = FALSE) - pnorm(40, mt, dt, lower.tail = FALSE)
+p2.2
+
+#-----------------------------------------------------------------------------
+# EJEMPLO 4 TLC
+#-----------------------------------------------------------------------------
+m <- 18
+d <- 6
+n <- 36
+estandar <- 6/sqrt(36)
+estandar
+p20 <- pnorm(20, 18, estandar, lower.tail = FALSE)
+p20
