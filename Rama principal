@@ -1,0 +1,128 @@
+import tkinter as tk
+
+
+
+def siguente_opcion():
+ ventana1.withdraw()
+ ventana2.deiconify()
+
+def volver_inicio():
+ ventana2.withdraw()
+ ventana1.deiconify()
+
+
+ventana1 = tk.Tk()
+ventana1.title("Santa Lucia")
+ventana1.geometry("400x300")
+
+registro = tk.Label(
+ ventana1,
+ text="Ingrese su nombre:",
+ font=("Arial", 16)
+)
+registro.pack(pady=10)
+
+ingreso = tk.Entry(
+ ventana1,
+ fg="#538DD0",
+ font=("Arial", 16)
+)
+ingreso.pack(pady=10)
+registro = tk.Label(
+ ventana1,
+ text="Ingrese su cedula de identidad:",
+ font=("Arial", 16)
+)
+registro.pack(pady=10)
+
+ingreso = tk.Entry(
+ ventana1,
+ fg="#538DD0",
+ font=("Arial", 16)
+)
+ingreso.pack(pady=10)
+
+
+tk.Button(
+ ventana1,
+ text="Registro",
+ command=lambda: registro.config(
+ text=f"¡Registro completo,{ingreso.get()}! " )
+).pack(pady=10)
+
+tk.Button(
+ ventana1,
+ text="Ir a al apartado de opciones",
+ command=siguente_opcion
+).pack(pady=10)
+
+
+
+ventana2 = tk.Toplevel(ventana1)
+ventana2.title("Santa Lucia - Opciones")
+ventana2.geometry("500x400")
+ventana2.withdraw()
+
+opcion = tk.IntVar()
+
+tk.Checkbutton(
+ ventana2,
+ text="",
+ variable=opcion,
+ font=("Arial",20)
+).pack(pady=10)
+
+herramientas_var = tk.StringVar(value="ninguno")
+
+tk.Label(
+ ventana2,
+ text="Seleccione su preferecncia"
+).pack()
+
+tk.Radiobutton(
+ ventana2,
+ text="Stock",
+ variable=herramientas_var,
+ value="Stock"
+).pack()
+
+tk.Radiobutton(
+ ventana2,
+ text="Proveedor",
+ variable=herramientas_var,
+ value="Proveedor"
+).pack()
+
+tk.Radiobutton(
+ ventana2,
+ text="Compras",
+ variable=herramientas_var,
+ value="Compras"
+).pack()
+
+tk.Radiobutton(
+ ventana2,
+ text="Ventas",
+ variable=herramientas_var,
+ value="Ventas"
+).pack()
+
+tk.Label(
+ ventana2,
+ text="Seleccione de herramientas:"
+).pack(pady=10)
+
+lista = tk.Listbox(ventana2, height=4)
+lista.insert(tk.END, "")
+lista.insert(tk.END, "")
+lista.insert(tk.END, "")
+lista.insert(tk.END, "")
+lista.pack()
+
+tk.Button(
+    ventana2,
+    text="Volver",
+    command=volver_inicio
+).pack(pady=20)
+
+ventana1.mainloop()
