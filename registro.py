@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 
-
 def validar_cedula(cedula):
  if len(cedula) != 10:
      return False
@@ -16,6 +15,8 @@ class VentanaRegistro(tk.Tk):
   super().__init__()
   self.title("Santa Lucia")
   self.geometry("600x800")
+  self.resizable(False, False)
+
  
   self.imagen = Image.open(imagen_path)
   self.imagen = self.imagen.resize((600, 800))
