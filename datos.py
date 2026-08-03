@@ -1,0 +1,6 @@
+
+stock = []
+proveedores = []
+compras = []
+ventas = []
+ 
