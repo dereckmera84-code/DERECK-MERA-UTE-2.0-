@@ -1,21 +1,5 @@
 
-    )
-    style.map("TCheckbutton", background=[("active", COLOR_FONDO)])
-    style.configure(
-        "TRadiobutton",
-        background=COLOR_FONDO,
-        foreground=COLOR_TEXTO_CLARO,
-        font=FUENTE_LABEL,
-    )
-    style.map("TRadiobutton", background=[("active", COLOR_FONDO)])
 
-    style.configure(
-        "Accent.TButton",
-        background=COLOR_ACCENTO,
-        foreground="white",
-        font=FUENTE_BOTON,
-        padding=(14, 10),
-        borderwidth=0,
     )
     style.map("Accent.TButton", background=[("active", COLOR_ACCENTO_HOVER)])
 
