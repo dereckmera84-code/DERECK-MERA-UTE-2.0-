@@ -1,4 +1,32 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
 
+import tema
+
+
+class VentanaHerramienta(tk.Toplevel):
+    """
+    Ventana genérica reutilizable: un formulario para agregar un registro
+    y una tabla (Treeview) que lista todo lo agregado.
+
+    campos: lista de nombres de columnas, ej. ["Producto", "Cantidad"]
+    lista_datos: lista de Python (de datos.py) donde se guardan los registros
+    """
+
+    def __init__(self, parent, titulo, campos, lista_datos):
+        super().__init__(parent)
+        self.title(f"Santa Lucía - {titulo}")
+        self.geometry("640x600")
+        self.resizable(False, False)
+        self.configure(bg=tema.COLOR_FONDO)
+        self.withdraw()
+
+        self.campos = campos
+        self.lista_datos = lista_datos
+        self.entradas = {}
+
+        style = ttk.Style(self)
+        tema.aplicar_tema(style)
 
         self.crear_widgets(titulo)
         self.cargar_datos_existentes()
