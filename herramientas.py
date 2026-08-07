@@ -1,25 +1,4 @@
-import tkinter as tk
-from tkinter import ttk, messagebox
 
-import tema
-
-
-class VentanaHerramienta(tk.Toplevel):
-
-    def __init__(self, parent, titulo, campos, lista_datos):
-        super().__init__(parent)
-        self.title(f"Santa Lucía - {titulo}")
-        self.geometry("640x600")
-        self.resizable(False, False)
-        self.configure(bg=tema.COLOR_FONDO)
-        self.withdraw()
-
-        self.campos = campos
-        self.lista_datos = lista_datos
-        self.entradas = {}
-
-        style = ttk.Style(self)
-        tema.aplicar_tema(style)
 
         self.crear_widgets(titulo)
         self.cargar_datos_existentes()
