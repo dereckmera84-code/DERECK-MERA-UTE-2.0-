@@ -1,46 +1,4 @@
-COLOR_FONDO = "#0F2E52"
-COLOR_ACCENTO = "#2966AC"
-COLOR_ACCENTO_HOVER = "#3A7BC8"
-COLOR_TEXTO_CLARO = "#EAF1FB"
-COLOR_TEXTO_SUAVE = "#9FBFE2"
-COLOR_EXITO = "#4CAF50"
-COLOR_ERROR = "#E86A6A"
 
-FUENTE_TITULO = ("Segoe UI", 22, "bold")
-FUENTE_SUBTITULO = ("Segoe UI", 12)
-FUENTE_LABEL = ("Segoe UI", 12)
-FUENTE_ENTRY = ("Segoe UI", 12)
-FUENTE_BOTON = ("Segoe UI", 12, "bold")
-
-
-def aplicar_tema(style):
-    """Configura un ttk.Style con el tema visual de Santa Lucía."""
-    style.theme_use("clam")
-
-    style.configure("Fondo.TFrame", background=COLOR_FONDO)
-    style.configure(
-        "Titulo.TLabel",
-        background=COLOR_FONDO,
-        foreground=COLOR_TEXTO_SUAVE,
-        font=FUENTE_TITULO,
-    )
-    style.configure(
-        "Texto.TLabel",
-        background=COLOR_FONDO,
-        foreground=COLOR_TEXTO_CLARO,
-        font=FUENTE_LABEL,
-    )
-    style.configure(
-        "Estado.TLabel",
-        background=COLOR_FONDO,
-        font=("Segoe UI", 11, "bold"),
-    )
-    style.configure("TEntry", fieldbackground="white", padding=6, font=FUENTE_ENTRY)
-    style.configure(
-        "TCheckbutton",
-        background=COLOR_FONDO,
-        foreground=COLOR_TEXTO_CLARO,
-        font=FUENTE_LABEL,
     )
     style.map("TCheckbutton", background=[("active", COLOR_FONDO)])
     style.configure(
