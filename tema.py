@@ -5,25 +5,25 @@ def aplicar_tema(style):
  style.configure("Titulo.Tlabel",
  background="#0F2E52",
  foreground="#9FBFE2",
- font=("segoe ",12))
+ font=("segoe UI",12))
 
  style.configure("Texto.Tlabel",
  background="#0F2E52",
  foreground="#EAF1FB",
- font=("segoe ",12))
+ font=("segoe UI",12))
 
  style.configure("Estado.Tlabel",
  background="#0F2E52",
- font=("segoe ",11,"bold"))
+ font=("segoe UI",11,"bold"))
 
  style.configure("TEntry",
  fieldbackground="#FAFBFD",
  padding=6,
- font=("segoe ",12))
+ font=("segoe UI",12))
  style.configure("Tcheckbutton",
  background="#0F2E52",
  foreground="#EAF1FB",
- font=("segoe ",12))
+ font=("segoe UI",12))
 
  style.map("Tcheckbutton",
  background=[("active","#0F2E52")])
@@ -31,7 +31,7 @@ def aplicar_tema(style):
  style.configure("TRadiobutton",
  background="#0F2E52",
  foreground="#FAFBFD",
- font=("segoe ",12))
+ font=("segoe UI",12))
 
  style.map("TRadiobutton",
  background=[("active","#2966AC")])
@@ -39,7 +39,7 @@ def aplicar_tema(style):
  style.configure("Accent.Tbutton",
  background="#466991",
  foreground="#FAFBFD",
- font=("segoe ",12,"bold"),
+ font=("segoe UI",12,"bold"),
  padding=(14, 8),
  borderwidth=0)
 
@@ -49,7 +49,7 @@ def aplicar_tema(style):
  style.configure("Secondary.Tbutton",
  background="#9FBFE2",
  foreground="#0F2E52",
- font=("segoe", 11),
+ font=("segoe UI", 11),
  padding=(14, 8),
  borderwidth=0)
 
@@ -61,7 +61,7 @@ def aplicar_tema(style):
  fieldbackground="#FAFBFD",
  foreground="#1A1A1A",
  rowheight=25,
- font=("segoe", 10))
+ font=("segoe UI", 10))
 
  style.map("treeview.header",
 background=[("active", "#3A7BC8")])
@@ -69,4 +69,4 @@ background=[("active", "#3A7BC8")])
  style.configure("treeview.header",
  background= "#2966AC",
  foreground="#FAFBFD",
- font=("segoe",11, "bold"))
+ font=("segoe UI",11, "bold"))
