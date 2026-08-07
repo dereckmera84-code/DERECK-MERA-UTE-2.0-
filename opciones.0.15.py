@@ -1,42 +1,4 @@
-import tkinter as tk
-from tkinter import ttk, messagebox
 
-import tema
-import datos
-from herramientas import (
-    VentanaStock,
-    VentanaProveedores,
-    VentanaCompras,
-    VentanaVentas,
-)
-
-
-class VentanaOpciones(tk.Toplevel):
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.parent = parent
-        self.title("Santa Lucía - Opciones")
-        self.geometry("800x800")
-        self.resizable(False, False)
-        self.configure(bg=tema.COLOR_FONDO)
-        self.withdraw()
-
-        style = ttk.Style(self)
-        tema.aplicar_tema(style)
-
-        # Cada herramienta se crea una sola vez y se reutiliza (para no
-        # perder los datos que ya se agregaron cuando se vuelve a abrir).
-        self.ventanas_herramientas = {}
-
-        self.crear_widgets()
-
-    def crear_widgets(self):
-        contenedor = ttk.Frame(self, style="Fondo.TFrame", padding=40)
-        contenedor.pack(fill="both", expand=True)
-
-        ttk.Label(contenedor, text="Opciones", style="Titulo.TLabel").pack(
-            pady=(0, 30)
-        )
 
         self.opcion = tk.IntVar()
         ttk.Checkbutton(
